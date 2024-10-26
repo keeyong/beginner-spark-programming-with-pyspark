@@ -87,7 +87,7 @@ C:>dir /b /s java.exe
 
 spark-shell이나 pyspark을 실행하여 스칼라 기반 셀이나 파이썬 기반 셀을 띄울 수 있다. 또한 여기서 Spark Web UI의 위치를 찾아 브라우저에서 액세스볼 수 있다.
 
-<center><img src="img/spark-shell-web-ui.png"</center>
+<center><img src="img/spark-shell-web-ui-3.5.3.png"</center>
 
 다음으로 C:\Spark 폴더 밑에서 spark-submit으로 pi.py를 실행한다
 
