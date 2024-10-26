@@ -19,7 +19,7 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11+28, mixed mode)
    ```
    brew install java11
    ```
-     - 제대로 설치가 되면 /usr/local/Cellar/openjdk@11 이 밑에 설치가 되어야함
+     - 제대로 설치가 되면 /usr/local/Cellar/openjdk 이 밑에 설치가 되어야함
  - 낮은 버전의 자바가 있으면 해당 폴더를 삭제하고 새로 다운로드 (단 다른 프로그램 실행에 문제가 생길 수도 있음)
 
 ## JAVA_HOME 환경변수 설정
