@@ -40,7 +40,7 @@ C 드라이브의 루트밑에 Spark, Hadoop 이라는 폴더를 만들어 준�
 
 ### SPARK 3.0 다운로드
 
-- https://spark.apache.org/downloads.html 방문 후 가장 최신 버전을 다운로드. 예에서는 3.3.1 
+- https://spark.apache.org/downloads.html 방문 후 가장 최신 버전을 다운로드. 예에서는 3.5.3 
 
 <center><img src="img/spark-download.png"></center>
 
@@ -67,7 +67,7 @@ System에서 Advanced system settings 메뉴를 선택하고 아래 보이는 En
 여기서 시스템 변수의 새로 만들기를 누르고 시스템 변수로 아래 환경 변수들을 설정한다. 
 
 - HADOOP_HOME: C:\Hadoop
-- SPARK_HOME:  C:\Spark\spark-3.3.1-bin-hadoop3
+- SPARK_HOME:  C:\Spark\spark-3.5.3-bin-hadoop3
 - JAVA_HOME: 위의 JDK가 설치된 디렉토리에 맞춰 지정
 
 만일 자바가 설치된 폴더를 잘 모르겠으면 아래 커맨드를 실행해본다
@@ -92,7 +92,7 @@ spark-shell이나 pyspark을 실행하여 스칼라 기반 셀이나 파이썬 �
 다음으로 C:\Spark 폴더 밑에서 spark-submit으로 pi.py를 실행한다
 
 ```
-spark-submit --master local[4] ./spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py
+spark-submit --master local[4] ./spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py
 ```
 
 <center><img src="img/pi.py.png"></center>
