@@ -109,7 +109,7 @@ pip install py4j
 ```
 
  - 아래 실행 예제 참고
-   - 출력을 잘 보면 Spark Web UI 링크가 있음: http://ip-192-168-0-16.ap-northeast-2.compute.internal:4040
+   - 출력을 잘 보면 Spark Web UI 링크가 있음: http://macbook-pro-10.hsd1.ca.comcast.net:4040
    - master의 값이 local[*]로 설정되어 있음. 이는 Mac에 있는 CPU 수만큼 executor가 JVM안에 스레드로 실행될 것이란 의미
    - 쉘을 종료하려면 exit()를 입력
 ```
@@ -119,17 +119,17 @@ Python 3.9.12 (main, Apr  5 2022, 01:53:17)
 Type "help", "copyright", "credits" or "license" for more information.
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-23/01/10 15:24:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/10/26 09:52:37 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.3.1
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.3
       /_/
 
 Using Python version 3.9.12 (main, Apr  5 2022 01:53:17)
-Spark context Web UI available at http://ip-192-168-0-16.ap-northeast-2.compute.internal:4040
-Spark context available as 'sc' (master = local[*], app id = local-1673393042610).
+Spark context Web UI available at http://macbook-pro-10.hsd1.ca.comcast.net:4040
+Spark context available as 'sc' (master = local[*], app id = local-1729961558619).
 SparkSession available as 'spark'.
 >>> 
 ```
