@@ -42,7 +42,7 @@ source ~/.zshrc
 
 - https://spark.apache.org/downloads.html 방문 후 가장 최신 버전을 다운로드. 예에서는 3.5.3 
 
-<center><img src="img/spark-download.png"></center>
+<center><img src="img/spark-download-3.5.3.png"></center>
 
 - 해당 파일을 적당한 디렉토리로 옮긴 후 압축을 푼다. 여기 예에서는 ~/Downloads/spark/spark3 폴더에서 다운로드 
 ```
