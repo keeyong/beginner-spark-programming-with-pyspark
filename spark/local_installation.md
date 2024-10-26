@@ -173,83 +173,90 @@ if __name__ == "__main__":
  - 이를 spark-submit를 통해 로컬에서도 실행가능함 (master를 local[*]등으로 지정)
 
 ```
-spark-submit --master 'local[4]'  ./spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py
+spark-submit --master 'local[4]'  ./spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py
 ```
 
  - 위 명령을 실행하면 아래와 같은 결과를 볼 수 있음. PI 값의 출력이 "Pi is roughly 3.137880"
 
 ```
-23/01/10 15:40:27 INFO SparkContext: Running Spark version 3.3.1
-23/01/10 15:40:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-23/01/10 15:40:28 INFO ResourceUtils: ==============================================================
-23/01/10 15:40:28 INFO ResourceUtils: No custom resources configured for spark.driver.
-23/01/10 15:40:28 INFO ResourceUtils: ==============================================================
-23/01/10 15:40:28 INFO SparkContext: Submitted application: PythonPi
-23/01/10 15:40:28 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
-23/01/10 15:40:28 INFO ResourceProfile: Limiting resource is cpu
-23/01/10 15:40:28 INFO ResourceProfileManager: Added ResourceProfile id: 0
-23/01/10 15:40:28 INFO SecurityManager: Changing view acls to: jobox
-23/01/10 15:40:28 INFO SecurityManager: Changing modify acls to: jobox
-23/01/10 15:40:28 INFO SecurityManager: Changing view acls groups to: 
-23/01/10 15:40:28 INFO SecurityManager: Changing modify acls groups to: 
-23/01/10 15:40:28 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(jobox); groups with view permissions: Set(); users  with modify permissions: Set(jobox); groups with modify permissions: Set()
-23/01/10 15:40:28 INFO Utils: Successfully started service 'sparkDriver' on port 57012.
-23/01/10 15:40:28 INFO SparkEnv: Registering MapOutputTracker
-23/01/10 15:40:28 INFO SparkEnv: Registering BlockManagerMaster
-23/01/10 15:40:28 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-23/01/10 15:40:28 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-23/01/10 15:40:28 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
-23/01/10 15:40:28 INFO DiskBlockManager: Created local directory at /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/blockmgr-1e39e7e3-5c64-45b5-b5ee-30ccb38bc08b
-23/01/10 15:40:28 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
-23/01/10 15:40:28 INFO SparkEnv: Registering OutputCommitCoordinator
-23/01/10 15:40:28 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-23/01/10 15:40:29 INFO Executor: Starting executor ID driver on host ip-192-168-0-16.ap-northeast-2.compute.internal
-23/01/10 15:40:29 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
-23/01/10 15:40:29 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 57014.
-23/01/10 15:40:29 INFO NettyBlockTransferService: Server created on ip-192-168-0-16.ap-northeast-2.compute.internal:57014
-23/01/10 15:40:29 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-23/01/10 15:40:29 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-192-168-0-16.ap-northeast-2.compute.internal, 57014, None)
-23/01/10 15:40:29 INFO BlockManagerMasterEndpoint: Registering block manager ip-192-168-0-16.ap-northeast-2.compute.internal:57014 with 434.4 MiB RAM, BlockManagerId(driver, ip-192-168-0-16.ap-northeast-2.compute.internal, 57014, None)
-23/01/10 15:40:29 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-192-168-0-16.ap-northeast-2.compute.internal, 57014, None)
-23/01/10 15:40:29 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-192-168-0-16.ap-northeast-2.compute.internal, 57014, None)
-23/01/10 15:40:30 INFO SparkContext: Starting job: reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42
-23/01/10 15:40:30 INFO DAGScheduler: Got job 0 (reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42) with 2 output partitions
-23/01/10 15:40:30 INFO DAGScheduler: Final stage: ResultStage 0 (reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42)
-23/01/10 15:40:30 INFO DAGScheduler: Parents of final stage: List()
-23/01/10 15:40:30 INFO DAGScheduler: Missing parents: List()
-23/01/10 15:40:30 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[1] at reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42), which has no missing parents
-23/01/10 15:40:30 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 11.5 KiB, free 434.4 MiB)
-23/01/10 15:40:31 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 8.6 KiB, free 434.4 MiB)
-23/01/10 15:40:31 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-192-168-0-16.ap-northeast-2.compute.internal:57014 (size: 8.6 KiB, free: 434.4 MiB)
-23/01/10 15:40:31 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1513
-23/01/10 15:40:31 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (PythonRDD[1] at reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42) (first 15 tasks are for partitions Vector(0, 1))
-23/01/10 15:40:31 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks resource profile 0
-23/01/10 15:40:31 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (ip-192-168-0-16.ap-northeast-2.compute.internal, executor driver, partition 0, PROCESS_LOCAL, 4433 bytes) taskResourceAssignments Map()
-23/01/10 15:40:31 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (ip-192-168-0-16.ap-northeast-2.compute.internal, executor driver, partition 1, PROCESS_LOCAL, 4433 bytes) taskResourceAssignments Map()
-23/01/10 15:40:31 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-23/01/10 15:40:31 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
-23/01/10 15:40:32 INFO PythonRunner: Times: total = 771, boot = 678, init = 31, finish = 62
-23/01/10 15:40:32 INFO PythonRunner: Times: total = 771, boot = 687, init = 22, finish = 62
-23/01/10 15:40:32 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1322 bytes result sent to driver
-23/01/10 15:40:32 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1322 bytes result sent to driver
-23/01/10 15:40:32 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 1038 ms on ip-192-168-0-16.ap-northeast-2.compute.internal (executor driver) (1/2)
-23/01/10 15:40:32 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1068 ms on ip-192-168-0-16.ap-northeast-2.compute.internal (executor driver) (2/2)
-23/01/10 15:40:32 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-23/01/10 15:40:32 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 57015
-23/01/10 15:40:32 INFO DAGScheduler: ResultStage 0 (reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42) finished in 1.870 s
-23/01/10 15:40:32 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
-23/01/10 15:40:32 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
-23/01/10 15:40:32 INFO DAGScheduler: Job 0 finished: reduce at /Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3/examples/src/main/python/pi.py:42, took 1.937419 s
-Pi is roughly 3.137880
-23/01/10 15:40:32 INFO SparkUI: Stopped Spark web UI at http://ip-192-168-0-16.ap-northeast-2.compute.internal:4040
-23/01/10 15:40:32 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-23/01/10 15:40:32 INFO MemoryStore: MemoryStore cleared
-23/01/10 15:40:32 INFO BlockManager: BlockManager stopped
-23/01/10 15:40:32 INFO BlockManagerMaster: BlockManagerMaster stopped
-23/01/10 15:40:32 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-23/01/10 15:40:32 INFO SparkContext: Successfully stopped SparkContext
-23/01/10 15:40:33 INFO ShutdownHookManager: Shutdown hook called
-23/01/10 15:40:33 INFO ShutdownHookManager: Deleting directory /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/spark-ecc97eb1-2e86-476e-9f09-dcfc0a612210
-23/01/10 15:40:33 INFO ShutdownHookManager: Deleting directory /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/spark-ecc97eb1-2e86-476e-9f09-dcfc0a612210/pyspark-2b560f16-38ac-4ab5-a45b-8bac68b67ef7
-23/01/10 15:40:33 INFO ShutdownHookManager: Deleting directory /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/spark-88677da1-4281-449e-b85c-29b771fcc6bf
+24/10/26 09:55:08 INFO SparkContext: Running Spark version 3.5.3
+24/10/26 09:55:08 INFO SparkContext: OS info Mac OS X, 10.16, x86_64
+24/10/26 09:55:08 INFO SparkContext: Java version 11
+24/10/26 09:55:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/10/26 09:55:08 INFO ResourceUtils: ==============================================================
+24/10/26 09:55:08 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/10/26 09:55:08 INFO ResourceUtils: ==============================================================
+24/10/26 09:55:08 INFO SparkContext: Submitted application: PythonPi
+24/10/26 09:55:08 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/10/26 09:55:08 INFO ResourceProfile: Limiting resource is cpu
+24/10/26 09:55:08 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/10/26 09:55:08 INFO SecurityManager: Changing view acls to: jobox
+24/10/26 09:55:08 INFO SecurityManager: Changing modify acls to: jobox
+24/10/26 09:55:08 INFO SecurityManager: Changing view acls groups to: 
+24/10/26 09:55:08 INFO SecurityManager: Changing modify acls groups to: 
+24/10/26 09:55:08 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: jobox; groups with view permissions: EMPTY; users with modify permissions: jobox; groups with modify permissions: EMPTY
+24/10/26 09:55:08 INFO Utils: Successfully started service 'sparkDriver' on port 50588.
+24/10/26 09:55:09 INFO SparkEnv: Registering MapOutputTracker
+24/10/26 09:55:09 INFO SparkEnv: Registering BlockManagerMaster
+24/10/26 09:55:09 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/10/26 09:55:09 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/10/26 09:55:09 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/10/26 09:55:09 INFO DiskBlockManager: Created local directory at /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/blockmgr-0ebd9e4d-4568-4297-a757-43aee2af7a0d
+24/10/26 09:55:09 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+24/10/26 09:55:09 INFO SparkEnv: Registering OutputCommitCoordinator
+24/10/26 09:55:09 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/10/26 09:55:09 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/10/26 09:55:09 INFO Executor: Starting executor ID driver on host macbook-pro-10.hsd1.ca.comcast.net
+24/10/26 09:55:09 INFO Executor: OS info Mac OS X, 10.16, x86_64
+24/10/26 09:55:09 INFO Executor: Java version 11
+24/10/26 09:55:09 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/10/26 09:55:09 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@1c9cb5b4 for default.
+24/10/26 09:55:09 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 50589.
+24/10/26 09:55:09 INFO NettyBlockTransferService: Server created on macbook-pro-10.hsd1.ca.comcast.net:50589
+24/10/26 09:55:09 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/10/26 09:55:09 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, macbook-pro-10.hsd1.ca.comcast.net, 50589, None)
+24/10/26 09:55:09 INFO BlockManagerMasterEndpoint: Registering block manager macbook-pro-10.hsd1.ca.comcast.net:50589 with 434.4 MiB RAM, BlockManagerId(driver, macbook-pro-10.hsd1.ca.comcast.net, 50589, None)
+24/10/26 09:55:09 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, macbook-pro-10.hsd1.ca.comcast.net, 50589, None)
+24/10/26 09:55:09 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, macbook-pro-10.hsd1.ca.comcast.net, 50589, None)
+24/10/26 09:55:10 INFO SparkContext: Starting job: reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42
+24/10/26 09:55:10 INFO DAGScheduler: Got job 0 (reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42) with 2 output partitions
+24/10/26 09:55:10 INFO DAGScheduler: Final stage: ResultStage 0 (reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42)
+24/10/26 09:55:10 INFO DAGScheduler: Parents of final stage: List()
+24/10/26 09:55:10 INFO DAGScheduler: Missing parents: List()
+24/10/26 09:55:10 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[1] at reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42), which has no missing parents
+24/10/26 09:55:10 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 11.6 KiB, free 434.4 MiB)
+24/10/26 09:55:11 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 8.7 KiB, free 434.4 MiB)
+24/10/26 09:55:11 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on macbook-pro-10.hsd1.ca.comcast.net:50589 (size: 8.7 KiB, free: 434.4 MiB)
+24/10/26 09:55:11 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+24/10/26 09:55:11 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (PythonRDD[1] at reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42) (first 15 tasks are for partitions Vector(0, 1))
+24/10/26 09:55:11 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks resource profile 0
+24/10/26 09:55:11 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (macbook-pro-10.hsd1.ca.comcast.net, executor driver, partition 0, PROCESS_LOCAL, 8979 bytes) 
+24/10/26 09:55:11 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (macbook-pro-10.hsd1.ca.comcast.net, executor driver, partition 1, PROCESS_LOCAL, 8979 bytes) 
+24/10/26 09:55:11 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+24/10/26 09:55:11 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+24/10/26 09:55:12 INFO PythonRunner: Times: total = 897, boot = 811, init = 23, finish = 63
+24/10/26 09:55:12 INFO PythonRunner: Times: total = 898, boot = 816, init = 17, finish = 65
+24/10/26 09:55:12 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1369 bytes result sent to driver
+24/10/26 09:55:12 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1369 bytes result sent to driver
+24/10/26 09:55:12 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 1170 ms on macbook-pro-10.hsd1.ca.comcast.net (executor driver) (1/2)
+24/10/26 09:55:12 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1203 ms on macbook-pro-10.hsd1.ca.comcast.net (executor driver) (2/2)
+24/10/26 09:55:12 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+24/10/26 09:55:12 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 50590
+24/10/26 09:55:12 INFO DAGScheduler: ResultStage 0 (reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42) finished in 1.694 s
+24/10/26 09:55:12 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+24/10/26 09:55:12 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+24/10/26 09:55:12 INFO DAGScheduler: Job 0 finished: reduce at /Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3/examples/src/main/python/pi.py:42, took 1.749434 s
+Pi is roughly 3.137920
+24/10/26 09:55:12 INFO SparkContext: SparkContext is stopping with exitCode 0.
+24/10/26 09:55:12 INFO SparkUI: Stopped Spark web UI at http://macbook-pro-10.hsd1.ca.comcast.net:4040
+24/10/26 09:55:12 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+24/10/26 09:55:12 INFO MemoryStore: MemoryStore cleared
+24/10/26 09:55:12 INFO BlockManager: BlockManager stopped
+24/10/26 09:55:12 INFO BlockManagerMaster: BlockManagerMaster stopped
+24/10/26 09:55:12 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+24/10/26 09:55:12 INFO SparkContext: Successfully stopped SparkContext
+24/10/26 09:55:13 INFO ShutdownHookManager: Shutdown hook called
+24/10/26 09:55:13 INFO ShutdownHookManager: Deleting directory /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/spark-41b9432b-2a46-4735-8144-15a65699d2fc
+24/10/26 09:55:13 INFO ShutdownHookManager: Deleting directory /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/spark-affeaece-07e3-49a3-8737-a8744de54ef4/pyspark-c522e2e2-fac3-47a3-97eb-8a337f454ddb
+24/10/26 09:55:13 INFO ShutdownHookManager: Deleting directory /private/var/folders/s1/lv35w2f57ggd0r_95l6941rw0000gq/T/spark-affeaece-07e3-49a3-8737-a8744de54ef4
 ```
