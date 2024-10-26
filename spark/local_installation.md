@@ -40,14 +40,14 @@ source ~/.zshrc
 
 ## Spark 다운로드
 
-- https://spark.apache.org/downloads.html 방문 후 가장 최신 버전을 다운로드. 예에서는 3.3.1 
+- https://spark.apache.org/downloads.html 방문 후 가장 최신 버전을 다운로드. 예에서는 3.5.3 
 
 <center><img src="img/spark-download.png"></center>
 
-- 해당 파일을 적당한 디렉토리로 옮긴 후 압축을 푼다. 여기 예에서는 ~/Downloads/spark/spark3에서 다운로드 
+- 해당 파일을 적당한 디렉토리로 옮긴 후 압축을 푼다. 여기 예에서는 ~/Downloads/spark/spark3 폴더에서 다운로드 
 ```
-mv ~/Downloads/spark-3.3.1-bin-hadoop3.tgz .
-tar xvf spark-3.3.1-bin-hadoop3.tgz
+mv ~/Downloads/spark-3.5.3-bin-hadoop3.tgz .
+tar xvf spark-3.5.3-bin-hadoop3.tgz
 ```
 
 ## Z쉘 시작 스크립트에 SPARK 관련 환경변수 등록
@@ -55,7 +55,7 @@ tar xvf spark-3.3.1-bin-hadoop3.tgz
 - ~/.zshrc 파일을 다운로드하여 아래 두 줄을 하단에 추가 (위에서 다운로드받아 설치한 디렉토리에 맞춰 수정)
 - PATH에 spark의 bin 디렉토리를 추가 (커맨드라인 툴 사용 예정)
 ```
-export SPARK_HOME=/Users/jobox/Downloads/spark/spark3/spark-3.3.1-bin-hadoop3
+export SPARK_HOME=/Users/jobox/Downloads/spark/spark3/spark-3.5.3-bin-hadoop3
 export PATH=$PATH:$SPARK_HOME/bin
 ```
 
