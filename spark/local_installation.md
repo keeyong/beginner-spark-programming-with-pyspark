@@ -94,7 +94,7 @@ scala>
 ```
  - Spark Web UI 링크를 브라우저로 접근해보면 아래와 같은 화면이 뜸
 
-<center><img src="img/spark-shell-web-ui.png"></center>
+<center><img src="img/spark-shell-web-ui-3.5.3.png"></center>
 
 ## pyspark 실행해보기
 
