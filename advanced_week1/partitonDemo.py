@@ -16,7 +16,7 @@ if __name__ == "__main__":
         .enableHiveSupport() \
         .getOrCreate()
 
-    df = spark.read.csv("new_orders.csv", header=True, inferSchema=True)
+    df = spark.read.csv("data/new_orders.csv", header=True, inferSchema=True)
 
     df = df.withColumn("order_month", substring(df.order_date, 0, 7))
     df.show(5)
